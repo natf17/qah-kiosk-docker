@@ -71,4 +71,6 @@ docker build --build-arg DATABASE_URL=postgres://strapi_app:test@postgres-db:543
 We set two build arguments: `DATABASE_URL` holds the postgres connection string, and `MY_HEROKU_URL` is set to the empty string. The image name will be `strapi`.
 
 6. Run the container and attach to the network (use -it instead of -d to attach to the container):
+```shell
 docker run --name strapi-app --net=strapi_test -p 1337:1337 -d strapi
+```
