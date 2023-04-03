@@ -13,7 +13,7 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 # Install dependencies based on the preferred package manager
-COPY --from=git /repo/kiosk-prd-demo/package.json repo/kiosk-prd-demo/yarn.lock* repo/kiosk-prd-demo/package-lock.json* repo/kiosk-prd-demo/pnpm-lock.yaml* ./
+COPY --from=git /repo/nextjs-demo/package.json /repo/nextjs-demo/yarn.lock* /repo/nextjs-demo/package-lock.json* /repo/nextjs-demo/pnpm-lock.yaml* ./
 RUN \
   if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
   elif [ -f package-lock.json ]; then npm ci; \
@@ -25,7 +25,8 @@ RUN \
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
-COPY . .
+COPY --from=git /repo/nextjs-demo/ ./
+COPY .env.local ./
 
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry

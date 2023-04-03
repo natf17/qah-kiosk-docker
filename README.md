@@ -74,3 +74,35 @@ We set two build arguments: `DATABASE_URL` holds the postgres connection string,
 ```shell
 docker run --name strapi-app --net=strapi_test -p 1337:1337 -d strapi
 ```
+
+## Next.js setup
+7. Create an environment file with the following environment variables for the next.js app:
+```
+#./.env.local:
+# ### CMS ### #
+# Used for GraphQL queries
+CMS_GRAPHQL_ENDPOINT=http://strapi-app:1337/graphql
+
+# In production, CMS API token should be stored here:#
+## CMS_ACCESS_TOKEN=
+
+# ### Images ### #
+# Used in next.config.js to allow images to be loaded from this domain
+IMG_DOMAIN=res.cloudinary.com
+
+# Used as base url for images; should be empty in production
+NEXT_PUBLIC_VERCEL_IMG_API=
+
+```
+A library of icons is used for icons in the map page; the logo, back button, and language icon, are all local files. The background image is loaded from the project directory. For all other images (menu, about page, ), a graphql request is made to obtain the src url, which is appended to NEXT_PUBLIC_VERCEL_IMG_API. 
+In the map page, either custom maps (local) or location maps (from strapi) will be used (determined by the `mapViewConfig.enableFsCustomMaps` field in the graphql response). The app currently only supports looking for custom maps for the es and en locales.
+
+8. Build the docker image from the Dockerfile: (add production variable?)
+```shell
+docker build -t kiosk-app .
+```
+
+9. Run the container and attach to the network (use -it instead of -d to attach to the container):
+```shell
+docker run --name strapi-app --net=strapi_test -p 1337:1337 -d strapi
+```
