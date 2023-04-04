@@ -4,7 +4,7 @@ RUN apk add git
 WORKDIR /repo
 RUN git clone https://github.com/isaacd8k/nextjs-demo.git
 
-FROM node:18-alpine as base
+FROM node:14-alpine as base
 
 # Install dependencies only when needed
 FROM base AS deps
