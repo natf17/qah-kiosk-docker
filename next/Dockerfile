@@ -14,6 +14,7 @@ WORKDIR /app
 
 # Install dependencies based on the preferred package manager
 COPY --from=git /repo/nextjs-demo/package.json /repo/nextjs-demo/yarn.lock* /repo/nextjs-demo/package-lock.json* /repo/nextjs-demo/pnpm-lock.yaml* ./
+RUN npm install @mui/material @emotion/react @emotion/styled
 RUN \
   if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
   elif [ -f package-lock.json ]; then npm ci; \
@@ -33,10 +34,10 @@ COPY .env.local ./
 # Uncomment the following line in case you want to disable telemetry during the build.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
-RUN yarn build
+#RUN yarn build
 
 # If using npm comment out above and use below instead
-# RUN npm run build
+RUN npm run build
 
 # Production image, copy all the files and run next
 FROM base AS runner
