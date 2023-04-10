@@ -81,7 +81,7 @@ docker run --name strapi-app --net=strapi_test -p 1337:1337 -d strapi
 #./.env.local:
 # ### CMS ### #
 # Used for GraphQL queries
-CMS_GRAPHQL_ENDPOINT=http://strapi-app:1337/graphql
+CMS_GRAPHQL_ENDPOINT=http://host.docker.internal:1337/graphql
 
 # In production, CMS API token should be stored here:#
 ## CMS_ACCESS_TOKEN=
