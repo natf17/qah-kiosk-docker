@@ -2,7 +2,7 @@
 FROM alpine as git
 RUN apk add git
 WORKDIR /repo
-RUN git clone https://github.com/isaacd8k/nextjs-demo.git
+RUN git clone https://github.com/natf17/nextjs-demo.git
 
 FROM node:14-alpine as base
 
@@ -14,7 +14,6 @@ WORKDIR /app
 
 # Install dependencies based on the preferred package manager
 COPY --from=git /repo/nextjs-demo/package.json /repo/nextjs-demo/yarn.lock* /repo/nextjs-demo/package-lock.json* /repo/nextjs-demo/pnpm-lock.yaml* ./
-RUN npm install @mui/material @emotion/react @emotion/styled
 RUN \
   if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
   elif [ -f package-lock.json ]; then npm ci; \
