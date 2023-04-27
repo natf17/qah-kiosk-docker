@@ -35,6 +35,7 @@ COPY .env.local ./
 
 #RUN yarn build
 
+ARG CACHEBUST=31
 # If using npm comment out above and use below instead
 RUN npm run build
 

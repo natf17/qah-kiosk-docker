@@ -107,6 +107,6 @@ docker build -t kiosk-app .
 
 10. Run the container and attach to the network (use -it instead of -d to attach to the container):
 ```shell
-docker run --name strapi-app --net=strapi_test -p 1337:1337 -d strapi
+docker run --name next-app -p 3000:3000 -d kiosk-app
 ```
 
