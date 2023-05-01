@@ -116,7 +116,7 @@ docker run --name next-app -p 3000:3000 -d kiosk-app
 ```
 
 ## Add the first events!
-12. Follow the instructions [here](https://github.com/natf17/qah-kiosk-docker/blob/main/adding-events-instructions.txt) to add the first events ot the kiosk.
+12. Follow the instructions [here](https://github.com/natf17/qah-kiosk-docker/blob/main/adding-events-instructions.txt) to add the first events to the kiosk.
 
 13. Follow steps 9 and 10 to rebuild and rerun the NextJS app. Make sure to update the Dockerfile `ARG CACHEBUST` to force Docker to bypass the cache and rebuild the pages. (This is a current limitation).
 
