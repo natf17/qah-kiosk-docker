@@ -3,13 +3,13 @@
 |     Setting up the kiosk CMS     |
 ------------------------------------
 
-1. Follow the instructions to set up the superuser admin account.
+1. Open the admin panel and follow the instructions to set up the superuser admin account.
 
 2. Perform the following SETUP steps found in the NextJS app README.md:
  - SETUP: Configure permissions
  - SETUP: Add locales
 
-3. Add the following two location (save and publish):
+3. Add the following two locations (save and publish):
  - 1:
     - Level_name: "FIRST"
     - Level_num: 1

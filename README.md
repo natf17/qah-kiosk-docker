@@ -79,12 +79,15 @@ We set two build arguments: `DATABASE_URL` holds the postgres connection string,
 ```shell
 docker run --name strapi-app --net=strapi_test -p 1337:1337 -d strapi
 ```
-7. Configure permissions and populate the CMS (follow the [setup instructions](https://github.com/natf17/nextjs-demo/blob/main/setup-instructions.txt) for details).
-
 Note: to see requests received by the app, run `docker attach strapi-app`.
 
+7. Set up the CMS (follow the [setup instructions](https://github.com/natf17/qah-kiosk-docker/blob/main/setup-instructions.txt) for details).
+The admin panel is found at `http://localhost:1337`.
+
 ## Next.js setup
-8. Create an environment file with the following environment variables for the next.js app:
+8. `cd` into the `next` folder.
+
+9. Create an environment file with the following environment variables for the next.js app:
 ```
 #./.env.local:
 # ### CMS ### #
@@ -102,13 +105,20 @@ IMG_DOMAIN=res.cloudinary.com
 NEXT_PUBLIC_VERCEL_IMG_API=
 
 ```
-9. Build the docker image from the Dockerfile: (add production variable?)
+10. Build the docker image from the Dockerfile: (add production variable?)
 ```shell
 docker build -t kiosk-app .
 ```
 
-10. Run the container and attach to the network (use -it instead of -d to attach to the container):
+11. Run the container and attach to the network (use -it instead of -d to attach to the container):
 ```shell
 docker run --name next-app -p 3000:3000 -d kiosk-app
 ```
+
+## Add the first events!
+12. Follow the instructions [here](https://github.com/natf17/qah-kiosk-docker/blob/main/adding-events-instructions.txt) to add the first events ot the kiosk.
+
+13. Follow steps 9 and 10 to rebuild and rerun the NextJS app. Make sure to update the Dockerfile `ARG CACHEBUST` to force Docker to bypass the cache and rebuild the pages. (This is a current limitation).
+
+14. Open the app (from the host machine) here: `localhost:3000`.
 

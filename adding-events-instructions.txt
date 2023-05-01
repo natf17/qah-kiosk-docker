@@ -1,0 +1,51 @@
+
+------------------------------------
+|  Adding events to the kiosk CMS  |
+------------------------------------
+
+The instructions below assume that you are provided with a list of events for a particular event type (REG, CACO, or CABR) for a single service year.
+
+1. Go to the Strapi admin panel.
+
+2. Determine the service year for the events that will be entered:
+ - service_year = REGIONAL CONVENTION dates' year OR
+ - service_year = earliest CIRCUIT ASSEMBLY dates' year + 1
+
+3. If you are adding dates for an event season that already exists, skip to step 6.
+
+4. Create an Event Season:
+ - if a REGIONAL CONVENTION:
+   - Type: REG
+   - DurationDays: 3
+   - ServiceYear: [enter service_year calculated in step 2]
+   - SeasonYears:
+   - en:
+       - Theme: [enter regional convention theme]
+       - DurationText: "Three days"
+   - es:
+       - Theme: [enter regional convention theme]
+       - DurationText: "Tres dias"
+ - if a CIRCUIT ASSEMBLY:
+   - Type: CACO (if with CO) or CABR (if with branch rep.)
+   - DurationDays: 1
+   - ServiceYear: [enter service_year calculated in step 2]
+   - SeasonYears:
+   - en:
+       - Theme: [enter circuit assembly theme]
+       - DurationText: "Un dia"
+   - es:
+       - Theme: [enter circuit assembly theme]
+       - DurationText: "Un dia"
+
+5. Save and publish.
+
+6. For each event, create a Seasonal Event.
+   - Seasonal Type: [should match that of corresponding event season]
+   - StartDate: [day of event, or first day if a regional convention]
+   - EventLanguage: [choose the language of the assembly/convention: english (en), spanish (es), italian (it), polish (pl, korean (ko)]
+   - TestDateTime: [leave as is]
+   - Event_season: [choose the theme of the corresponding event season]
+
+7. Save and publish. 
+
+
