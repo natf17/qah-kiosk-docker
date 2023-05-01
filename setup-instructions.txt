@@ -1,0 +1,355 @@
+
+------------------------------------
+|     Setting up the kiosk CMS     |
+------------------------------------
+
+1. Follow the instructions to set up the superuser admin account.
+
+2. Perform the following SETUP steps found in the NextJS app README.md:
+ - SETUP: Configure permissions
+ - SETUP: Add locales
+
+3. Add the following two location (save and publish):
+ - 1:
+    - Level_name: "FIRST"
+    - Level_num: 1
+    - en:
+        - Fullname: "Ground Level"
+        - Map: (upload 01_LOC_GRMAP_EN)
+    - es: 
+        - Fullname: "Primer piso"
+        - Map: (upload 02_LOC_GRMAP_ES)
+ - 2:
+    - Level_name: "MEZZ"
+    - Level_num: 2
+    - en:
+        - Fullname: "Mezzanine"
+        - Map: (upload 03_LOC_MEZZMAP_EN)
+    - es: 
+        - Fullname: "Mezanine"
+        - Map: (upload 04_LOC_MEZZMAP_ES)
+4. Add four bathrooms (save and publish):
+ - 1:
+    - FeatImg:
+    - Gender: uni
+    - svgElemId:
+    - isWheelchairAccessible: on
+    - en:
+        - Name: "ADA Bathroom"
+        - Note:
+        - Location: Ground Level
+    - es:
+        - Name: "Baño para discapacitados"
+        - Note:
+        - Location: Primer piso
+ - 2:
+    - FeatImg:
+    - Gender: women
+    - svgElemId:
+    - isWheelchairAccessible: off
+    - en:
+        - Name: "1st Fl women's bathroom"
+        - Note:
+        - Location: Ground Level
+    - es:
+        - Name: "1er piso - baño para mujeres"
+        - Note:
+        - Location: Primer piso
+ - 3:
+    - FeatImg:
+    - Gender: women
+    - svgElemId:
+    - isWheelchairAccessible: off
+    - en:
+        - Name: "Mezzanine women's bathroom"
+        - Note:
+        - Location: Mezzanine
+    - es:
+        - Name: "Mezzanine - baño para mujeres"
+        - Note:
+        - Location: Mezanine
+ - 4:
+    - FeatImg:
+    - Gender: men
+    - svgElemId:
+    - isWheelchairAccessible: off
+    - en:
+        - Name: "Mezzanine men's bathroom"
+        - Note:
+        - Location: Mezzanine
+    - es:
+        - Name: "Mezanine - Baño para hombres"
+        - Note:
+        - Location: Mezanine
+
+5. Add one first aid location (save and publish):
+ - 1:
+    - FeatImg:
+    - svgElemId:
+    - isWheelchairAccessible: on
+    - en:
+        - Name: "First aid office"
+        - Note:
+        - Location: Ground Level
+    - es:
+        - Name: "Oficina de primeros auxilios"
+        - Note:
+        - Location: Primer piso
+
+6. Add two water fountains (save and publish):
+ - 1:
+    - FeatImg:
+    - svgElemId:
+    - isWheelchairAccessible: on
+    - en:
+        - Name: "First floor fountains"
+        - Note:
+        - Location: Ground Level
+    - es:
+        - Name: "Fuentes del primer piso"
+        - Note:
+        - Location: Primer piso
+ - 2:
+    - FeatImg:
+    - svgElemId:
+    - isWheelchairAccessible: off
+    - en:
+        - Name: "Mezzanine fountains"
+        - Note:
+        - Location: Mezzanine
+    - es:
+        - Name: "Fuentes en el mezanine"
+        - Note:
+        - Location: Mezanine
+
+7. Populate the pages:
+ Error 404 Page:
+ - ShowRedirectLink: on 
+ - en:
+     - PageTitle: "Apologies. We can't find this page."
+     - ErrorDescription: "Please tap below to return to the menu."
+     - RedirectLink:
+        - Url: "/menu"
+        - DisplayText: "Return to menu"
+        - Description: "Return to the menu page."
+ - es:
+     - PageTitle: "Disculpe."
+     - ErrorDescription: "No se pudo cargar esta página. Por favor pulse abajo para regresar al menú."
+     - RedirectLink:
+        - Url: "/menu"
+        - DisplayText: "Regresar al menú"
+        - Description: "Regresar al menú."
+
+ Home Page:
+ - ShowSelectFromAvailableLocales: on
+ - en:
+     - PageTitle: "Home"
+     - TapToContinuePrompt: "Select a language to continue"
+     - WelcomeText: "Welcome"
+ - es:
+     - PageTitle: "Inicio"
+     - TapToContinuePrompt: "Seleccione un idioma para continuar"
+     - WelcomeText: "Bienvenido"
+
+ Menu Page:
+ - en:
+     - PageTitle: "Menu"
+     - Directory
+        - Title: "Map"
+        - MenuItems:
+           - 1:
+               - Label: "Restrooms"
+               - IsVisible: on
+               - Image: (upload 05_MENU_BR)
+               - Url: "/directory?amenityId=bathrooms"
+           - 2:
+               - Label: "Water Fountains"
+               - IsVisible: on
+               - Image: (upload 06_MENU_WATER)
+               - Url: "/directory?amenityId=waterFountains"
+           - 3:
+               - Label: "First Aid"
+               - IsVisible: on
+               - Image: (upload 07_MENU_FAID)
+               - Url: "/directory?amenityId=firstAid"
+     - Events
+        - Title: "Upcoming Events"
+        - MenuItems:
+           - 1:
+               - Label: "Regional Conventions"
+               - IsVisible: on
+               - Image: (upload 09_MENU_REG)
+               - Url: "/events?eventType=REG"
+           - 2:
+               - Label: "Circuit Assemblies"
+               - Image: (upload 10_MENU_CA)
+               - Url: "/events?eventType=CACO"
+     - About
+        - Title: "About"
+        - MenuItems:
+           - 1:
+               - Label: "About QAH"
+               - IsVisible: on
+               - Image: (upload 11_MENU_ABOUT)
+               - Url: "/about"
+ - es:
+     - PageTitle: "Menú"
+     - Directory
+        - Title: "Ubicación"
+        - MenuItems:
+           - 1:
+               - Label: "Baños"
+               - IsVisible: on
+               - Image: (upload 05_MENU_BR)
+               - Url: "/directory?amenityId=bathrooms"
+           - 2:
+               - Label: "Agua"
+               - IsVisible: on
+               - Image: (upload 06_MENU_WATER
+               - Url: "/directory?amenityId=waterFountains"
+           - 3:
+               - Label: "Primeros Auxilios"
+               - IsVisible: on
+               - Image: (upload 07_MENU_FAID)
+               - Url: "/directory?amenityId=firstAid"
+     - Events
+        - Title: "Asambleas"
+        - MenuItems:
+           - 1:
+               - Label: "Asambleas Regional"
+               - IsVisible: on
+               - Image: (upload 09_MENU_REG)
+               - Url: "/events?eventType=REG"
+           - 2:
+               - Label: "Asambleas de Circuito"
+               - IsVisible: on
+               - Image: (upload 10_MENU_CA)
+               - Url: "/events?eventType=CACO"
+     - About
+        - Title: "Informacion"
+        - MenuItems:
+           - 1:
+               - Label: "Sobre QAH"
+               - IsVisible: on
+               - Image: (upload 11_MENU_ABOUT
+               - Url: "/about"
+
+ About Page:
+ - FeatImg: (upload 12_ABOUTIMG)
+ - en:
+     - PageTitle: "About"
+     - RichDescription: "Coming soon..." 
+ - es:
+     - PageTitle: "Sobre QAH"
+     - RichDescription: "Próximamente..."
+
+ Events Page:
+ - en:
+     - PageTitle: "Events"
+     - EventLangPickerLabel: "Seeing events in"
+     - General: 
+        - EventThemeLabel: "-" (not used)
+        - DurationLabel: "-" (not used)
+        - YearsShowingLabel: "-" (not used)
+        - DateLabel: "-" (not used)
+        - EventLangLabel: "-" (not used)
+        - NoEventsFound: "No matching events found."
+     - SectionREG:
+        - Title: "Regional conventions"
+        - Button_text: "Regional conventions"
+     - SectionCACO:
+        - Title: "Circuit Assemblies with Circuit Overseer" 
+        - Button_text: "Circuit Assemblies with Circuit Overseer"
+     - SectionCABR:
+        - Title: "Circuit Assemblies with Branch Rep."
+        - Button_text: "Circuit Assemblies with Branch Rep."
+     - SectionOTHER:
+        - Title: "-" (not used)
+        - Button_text: "-" (not used)
+     - PageDescription: "Tap on an event type below to see matching events in the current service year."
+ - es:
+     - PageTitle: "Eventos"
+     - EventLangPickerLabel: "Idioma de eventos"
+     - General: 
+        - EventThemeLabel: "-" (not used)
+        - DurationLabel: "-" (not used)
+        - YearsShowingLabel: "-" (not used)
+        - DateLabel: "-" (not used)
+        - EventLangLabel: "-" (not used)
+        - NoEventsFound: "No se encontraron eventos."
+     - SectionReg:
+        - Title "Asambleas Regional"
+        - Button_text: "Asambleas Regional"
+     - SectionCACO:
+        - Title "Asambleas de Circuito con el Supt. de Circuito"
+        - Button_text: "Asambleas de Circuito con el Supt. de Circuito"
+     - SectionCABR:
+        - Title "Asambleas de Circuito con Repr. de la Sucursal"
+        - Button_text: "Asambleas de Circuito con Repr. de la Sucursal"
+     - SectionOTHER:
+        - Title "-" (not used)
+        - Button_text: "-" (not used)
+     - PageDescription: "Seleccione el tipo de evento para ver las fechas en este año de servicio."
+
+ Map Page:
+ - Maps:
+        - Default: (upload 13_DUMMYIMG)
+        - Bathrooms: (upload 13_DUMMYIMG)
+        - WaterFountains: (upload 13_DUMMYIMG)
+        - FirstAid: (upload 13_DUMMYIMG)
+        - Donations: (upload 13_DUMMYIMG)
+ - en:
+     - PageTitle: "Map"
+     - TapWidget: 
+        - Instructions: "Tap to view locations on the map"
+        - Br_label: "-"
+        - Water_label: "-"
+        - Firstaid_label: "-"
+        - Donations_label: "-"
+        - NoResultsFound: "None found"
+     - BathroomAmenity: 
+        - WidgetLabel: "Bathrooms"
+        - HeadingLabel: "Bathrooms"
+     - WaterFountainAmenity: 
+        - WidgetLabel: "Water"
+        - HeadingLabel: "Water fountains"
+     - FirstAidAmenity: 
+        - WidgetLabel: "First aid"
+        - HeadingLabel: "First aid"
+     - DonationAmenity: 
+        - WidgetLabel: "Donations"
+        - HeadingLabel: "Donation terminals"
+     - PageDescription: "Make a selection below to view locations on the map"
+     - MapViewConfig:
+        - EnableFsCustomMaps: on
+        - ClearResults: "Clear results"
+        - LevelSelect: "Level"
+        - MapNotAvailable: "Map is not available"
+ - es:
+     - PageTitle: "Mapa"
+     - TapWidget: 
+        - Instructions: "Pulse una opción para ver las ubicaciones en el mapa"
+        - Br_label: "-"
+        - Water_label: "-"
+        - Firstaid_label: "-"
+        - Donations_label: "-"
+        - NoResultsFound: "No hay ubicaciones"
+     - BathroomAmenity: 
+        - WidgetLabel: "Baños"
+        - HeadingLabel: "Baños"
+     - WaterFountainAmenity: 
+        - WidgetLabel: "Agua"
+        - HeadingLabel: "Agua"
+     - FirstAidAmenity: 
+        - WidgetLabel: "Primeros Auxilios"
+        - HeadingLabel: "Primeros Auxilios"
+     - DonationAmenity: 
+        - WidgetLabel: "Donaciones"
+        - HeadingLabel: "Donaciones"
+     - PageDescription: "Pulse una opción para ver las ubicaciones en el mapa"
+     - MapViewConfig:
+        - EnableFsCustomMaps: on
+        - ClearResults: "Borrar busqueda"
+        - LevelSelect: "Planta"
+        - MapNotAvailable: "El mapa no está disponible"
+
