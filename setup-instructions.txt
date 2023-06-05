@@ -28,6 +28,7 @@
     - es: 
         - Fullname: "Mezanine"
         - Map: (upload 04_LOC_MEZZMAP_ES)
+
 4. Add four bathrooms (save and publish):
  - 1:
     - FeatImg:
@@ -65,7 +66,7 @@
         - Note:
         - Location: Mezzanine
     - es:
-        - Name: "Mezzanine - baño para mujeres"
+        - Name: "Mezanine - baño para mujeres"
         - Note:
         - Location: Mezanine
  - 4:
@@ -216,7 +217,7 @@
         - Title: "Asambleas"
         - MenuItems:
            - 1:
-               - Label: "Asambleas Regional"
+               - Label: "Asambleas Regionales"
                - IsVisible: on
                - Image: (upload 09_MENU_REG)
                - Url: "/events?eventType=REG"
@@ -226,12 +227,12 @@
                - Image: (upload 10_MENU_CA)
                - Url: "/events?eventType=CACO"
      - About
-        - Title: "Informacion"
+        - Title: "Información"
         - MenuItems:
            - 1:
                - Label: "Sobre QAH"
                - IsVisible: on
-               - Image: (upload 11_MENU_ABOUT
+               - Image: (upload 11_MENU_ABOUT)
                - Url: "/about"
 
  About Page:
@@ -278,8 +279,8 @@
         - EventLangLabel: "-" (not used)
         - NoEventsFound: "No se encontraron eventos."
      - SectionReg:
-        - Title "Asambleas Regional"
-        - Button_text: "Asambleas Regional"
+        - Title "Asambleas Regionales"
+        - Button_text: "Asambleas Regionales"
      - SectionCACO:
         - Title "Asambleas de Circuito con el Supt. de Circuito"
         - Button_text: "Asambleas de Circuito con el Supt. de Circuito"

@@ -70,7 +70,7 @@ docker build --build-arg DATABASE_URL=postgres://strapi_app:test@postgres-db:543
              --build-arg MY_HEROKU_URL= \
              --build-arg CLOUDINARY_NAME={enter cloudinary name} \
              --build-arg CLOUDINARY_KEY={enter cloudinary key} \
-             --build-arg CLOUDINARY_SECRET={} \
+             --build-arg CLOUDINARY_SECRET={enter cloudinary secret} \
              -t strapi .
 ```
 We set two build arguments: `DATABASE_URL` holds the postgres connection string, and `MY_HEROKU_URL` is set to the empty string. The image name will be `strapi`.
@@ -82,7 +82,7 @@ docker run --name strapi-app --net=strapi_test -p 1337:1337 -d strapi
 Note: to see requests received by the app, run `docker attach strapi-app`.
 
 7. Set up the CMS (follow the [setup instructions](https://github.com/natf17/qah-kiosk-docker/blob/main/setup-instructions.txt) for details).
-The admin panel is found at `http://localhost:1337`.
+The admin panel is found at `http://localhost:1337/admin`.
 
 ## Next.js setup
 8. `cd` into the `next` folder.
